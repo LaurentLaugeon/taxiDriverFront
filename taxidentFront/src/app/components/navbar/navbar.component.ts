@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
             return this.listTitles[item].title;
         }
     }
+    // Affiche la section où on se trouve
     return 'Dashboard';
   }
 
