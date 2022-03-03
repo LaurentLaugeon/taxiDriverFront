@@ -29,7 +29,7 @@ import { ClientComponent } from 'src/app/pages/client/client.component';
     UserProfileComponent,
     TablesComponent,
     IconsComponent,
-    MapsComponent
+    MapsComponent,
   ]
 })
 

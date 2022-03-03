@@ -16,6 +16,7 @@ import { ClientComponent } from './pages/client/client.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -31,6 +32,8 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
     AdminLayoutComponent,
     AuthLayoutComponent,
     ReservationComponent
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
