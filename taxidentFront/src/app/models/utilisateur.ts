@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export class Utilisateur {
     
     idUtilisateur!: number;
@@ -6,9 +8,7 @@ export class Utilisateur {
     username!: string;
     password!: string;
     email!: string;
-    note!: number;
-    pointsFidelite!: number;
-    // roles!: Role[];
+    roles!: Role[];
     // reservations!: Reservation[];
 
 

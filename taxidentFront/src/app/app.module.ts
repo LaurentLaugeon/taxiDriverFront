@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { AccueilChauffeurComponent } from './pages/accueil-chauffeur/accueil-chauffeur.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ComponentsModule } from './components/components.module';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+    AccueilChauffeurComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
