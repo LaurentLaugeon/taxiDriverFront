@@ -1,5 +1,8 @@
 import { Role } from "./role";
 
+import { Adresse } from "./adresse";
+
+
 export class Utilisateur {
     
     idUtilisateur!: number;
@@ -13,3 +16,4 @@ export class Utilisateur {
 
 
 }
+

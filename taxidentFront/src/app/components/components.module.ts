@@ -5,9 +5,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { UtilisateurComponent } from '../pages/utilisateur/utilisateur.component';
+
 import { ChauffeurComponent } from './chauffeur/chauffeur.component';
 import { VoituresRespoComponent } from './voitures-respo/voitures-respo.component';
 import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
+
 
 @NgModule({
   imports: [
@@ -19,6 +23,8 @@ import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+
+    UtilisateurComponent,
     ChauffeurComponent,
     VoituresRespoComponent,
     EditVehiculeComponent
