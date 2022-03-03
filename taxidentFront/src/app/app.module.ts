@@ -12,7 +12,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+
 import { RoleComponent } from './pages/role/role.component';
+
+import { ClientComponent } from './pages/client/client.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
+
+
 
 
 @NgModule({
@@ -29,7 +35,11 @@ import { RoleComponent } from './pages/role/role.component';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    RoleComponent
+
+    RoleComponent,
+
+    ReservationComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]
