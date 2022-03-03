@@ -32,7 +32,7 @@ export class EditVehiculeComponent implements OnInit {
       conso:['',Validators.required],
       nbPlace:['',Validators.required],
       capaciteCoffre:['',Validators.required],
-      chauffeur:['',Validatogrs.required],
+      chauffeur:['',Validators.required],
       agence:['',Validators.required]
     })
     //initialisation
