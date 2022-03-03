@@ -5,15 +5,16 @@ import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
-import { VoituresRespoComponent } from 'src/app/components/voitures-respo/voitures-respo.component';
-
+import { ClientComponent } from 'src/app/pages/client/client.component';
+import { ReservationComponent } from 'src/app/pages/reservation/reservation.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'voitures-respo', component: VoituresRespoComponent },
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'tables',         component: TablesComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'chauffeur',      component: ChauffeurComponent },
+    // { path: 'dashboard',      component: DashboardComponent },
+    // { path: 'user-profile',   component: UserProfileComponent },
+    // { path: 'tables',         component: TablesComponent },
+    // { path: 'icons',          component: IconsComponent },
+    // { path: 'maps',           component: MapsComponent },
+    { path: 'client',           component: ClientComponent },
+    { path: 'reservation',           component: ReservationComponent }
+
 ];

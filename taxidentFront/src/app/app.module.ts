@@ -12,7 +12,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { AccueilChauffeurComponent } from './pages/accueil-chauffeur/accueil-chauffeur.component';
+import { ClientComponent } from './pages/client/client.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
+
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AccueilChauffeurComponent } from './pages/accueil-chauffeur/accueil-cha
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    AccueilChauffeurComponent,
+    ReservationComponent
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
