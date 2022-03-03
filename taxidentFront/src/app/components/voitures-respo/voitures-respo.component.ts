@@ -21,7 +21,7 @@ export class VoituresRespoComponent implements OnInit {
   findAll(){
     //mettre id du responsable d'agence connecte
     this.respoAgenceService.findAllVehiculeByAgence(1).subscribe(data => {this.voitures = data;});
-  }
+  }vehiculeId
   deleteVehicule(id:number){
     this.respoAgenceService.deleteVehicule(id).subscribe(()=>{this.findAll()});
   }
@@ -33,7 +33,7 @@ export class VoituresRespoComponent implements OnInit {
   }
   editVehicule(voit:Vehicules){
     localStorage.removeItem("vehiculeId");
-    localStorage.setItem("vehiculeId",voit.idVehicule.toString());
-    this.router.navigate(['/components/editVehicule',voit.idVehicule]);
+    localStorage.setItem("",voit.idVehicule.toString());
+    this.router.navigate(["editVehicule",voit.idVehicule]);
   }
 }

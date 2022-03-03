@@ -11,13 +11,15 @@ import { UtilisateurComponent } from '../pages/utilisateur/utilisateur.component
 import { ChauffeurComponent } from './chauffeur/chauffeur.component';
 import { VoituresRespoComponent } from './voitures-respo/voitures-respo.component';
 import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   declarations: [
     FooterComponent,
