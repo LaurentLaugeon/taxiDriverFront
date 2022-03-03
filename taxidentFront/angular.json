@@ -155,8 +155,8 @@
   },
   "defaultProject": "argon-dashboard-angular",
   "schematics": {
-    "@schematics/angular:component": {
-    }
+    "@schematics/angular:component": {    }
+
   },
   "cli": {
     "analytics": false
