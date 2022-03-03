@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponsableAgenceService } from 'src/app/services/responsable-agence.service';
 
 @Component({
   selector: 'app-voitures-respo',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VoituresRespoComponent implements OnInit {
 
-  constructor() { }
+  voitures : any;
+  
+  constructor(private respoAgenceService : ResponsableAgenceService) { }
 
   ngOnInit(): void {
+    this.findAll();
+  }
+  findAll(){
+    //mettre id du responsable d'agence connecte
+    this.respoAgenceService.findAllVehiculeByAgence(1).subscribe(data => {this.voitures = data;});
   }
 
 }
