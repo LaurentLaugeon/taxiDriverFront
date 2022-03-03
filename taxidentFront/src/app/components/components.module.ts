@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChauffeurComponent } from './chauffeur/chauffeur.component';
 import { VoituresRespoComponent } from './voitures-respo/voitures-respo.component';
+import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { VoituresRespoComponent } from './voitures-respo/voitures-respo.componen
     NavbarComponent,
     SidebarComponent,
     ChauffeurComponent,
-    VoituresRespoComponent
+    VoituresRespoComponent,
+    EditVehiculeComponent
   ],
   exports: [
     FooterComponent,
