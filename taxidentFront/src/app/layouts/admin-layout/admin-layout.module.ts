@@ -12,7 +12,6 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ClientComponent } from 'src/app/pages/client/client.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -22,7 +21,8 @@ import { ClientComponent } from 'src/app/pages/client/client.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DashboardComponent,

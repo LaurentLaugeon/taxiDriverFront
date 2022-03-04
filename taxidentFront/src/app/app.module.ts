@@ -54,9 +54,7 @@ intercept(req:HttpRequest<any>, next: HttpHandler){
     AuthLayoutComponent,
     RoleComponent,
     AdministrateurComponent,
-    ReservationComponent
-
-
+    ReservationComponent,
   ],
   providers: [
     ReservationService,
