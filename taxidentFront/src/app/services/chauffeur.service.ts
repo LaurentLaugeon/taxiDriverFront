@@ -11,6 +11,16 @@ export class ChauffeurService {
 
   constructor(private httpClient:HttpClient) { }
 
+  public findAll() : Observable<any>{
+    return this.httpClient.get(this.baseURL);  
+  }
+  public delete(id:number):Observable<any>{
+    return this.httpClient.delete(this.baseURL+"/"+id); 
+  }
+  public save(chauffeur:any):Observable<any>{
+    return this.httpClient.post(this.baseURL,chauffeur);
+  }
+ 
   // Affichage de la note du chauffeur
   public affichageNote(id:number):Observable<any>{
     return this.httpClient.get(this.baseURL+"/"+id);

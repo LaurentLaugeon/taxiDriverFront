@@ -13,8 +13,8 @@ import { VoituresRespoComponent } from 'src/app/components/voitures-respo/voitur
 import { EditVehiculeComponent } from 'src/app/components/edit-vehicule/edit-vehicule.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'roles',   component: RoleComponent },
-    { path: 'utilisateur',   component: UtilisateurComponent },
+    { path: 'roles',            component: RoleComponent },
+    { path: 'utilisateur',      component: UtilisateurComponent },
     { path: 'voitures-respo',   component: VoituresRespoComponent },
     { path: 'editVehicule/:id', component: EditVehiculeComponent },
     { path: 'client',           component: ClientComponent },

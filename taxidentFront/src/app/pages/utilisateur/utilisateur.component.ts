@@ -32,24 +32,26 @@ export class UtilisateurComponent implements OnInit {
     this.utilisateurService.delete(id).subscribe(()=>{this.findAll()}) // () => {this.findAll()} 
   }
   save(){
-    // On utilise la fonction save
-    // MAJ de la liste des utilisateurs dans la page web
-    // Vider le formulaire  
     this.utilisateurService.save(this.utilisateur).subscribe(()=>{
-        this.findAll();  // MAJ de la liste des utilisateurs
-        this.utilisateur = new Utilisateur(); // Vider le formulaire
+        this.findAll();
+        this.utilisateur = new Utilisateur();
     })
   }
 
   editUtilisateur(utilisateur:Utilisateur){
-    // 1. Crer une variable locale
-    // 2. stocker cette variable dans le cache du navigateur(localStorage)
     localStorage.removeItem("editUtilisateurId");
-    localStorage.setItem("editUtilisateurId", utilisateur.idUtilisateur.toString()); // editUserId va avoir la valeur de l'id qu'on va selecitonner
-
-    this.router.navigate(['/base/editUtilisateur',utilisateur.idUtilisateur]); //localhos:4200/#/base/editUser/5 
-    // On va avoir une navigation entre le composant forms.component.ts --> edit-user.component.ts
-    // edit-user.component.ts : Affichage d'un formulaire avec des données remplit + MAJ des donnees et la redirection vers forms.component.ts
-
+    localStorage.setItem("editUtilisateurId", utilisateur.idUtilisateur.toString()); 
+    this.router.navigate(['/base/editUtilisateur',utilisateur.idUtilisateur]); 
+  }
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  authorities(){
+    console.log("isAdmin = "+this.appService.isAdmin)
+    if(this.appService.isAdmin==true){
+      return false;
+    }else{
+      return true;
+    }
   }
 }
