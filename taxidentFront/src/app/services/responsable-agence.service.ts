@@ -18,6 +18,16 @@ export class ResponsableAgenceService {
   public findAllStatByAgence(id:number): Observable<any> {
     return this.httpClient.get(this.baseURL+"/statistiques/"+id);
   }
+
+  //recupere les agence 
+  public findAllAgence(): Observable<any> {
+    return this.httpClient.get(this.baseURL+"/agences");
+  }
+
+  //recupere les chauffeurs d'une agence
+  public findAllChauffeurByAgence(id:number): Observable<any> {
+    return this.httpClient.get(this.baseURL+"/chauffeurs/"+id);
+  }
   
   //recupere les vehicules d'une agence
   public findAllVehiculeByAgence(id:number): Observable<any> {

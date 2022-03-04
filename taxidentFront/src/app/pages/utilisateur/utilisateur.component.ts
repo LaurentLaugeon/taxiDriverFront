@@ -10,6 +10,7 @@ import { AdministrateurService } from 'src/app/services/administrateur.service';
 import { ChauffeurService } from 'src/app/services/chauffeur.service';
 import { ClientService } from 'src/app/services/client.service';
 import { ResponsableAgenceService } from 'src/app/services/responsable-agence.service';
+
 import { RoleService } from 'src/app/services/role.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
@@ -60,10 +61,16 @@ export class UtilisateurComponent implements OnInit {
   deleteAdmin(id:number){
     this.utilisateurService.deleteAdmin(id).subscribe(()=>{this.findAllAdmin()}) // () => {this.findAll()} 
   }
+
   saveAdmin(){  
     this.utilisateurService.saveAdmin(this.administrateur).subscribe(()=>{
         this.findAllAdmin();  // MAJ de la liste des utilisateurs
         this.administrateur = new Administrateur(); // Vider le formulaire
+
+  save(){
+    this.utilisateurService.save(this.utilisateur).subscribe(()=>{
+        this.findAll();
+        this.utilisateur = new Utilisateur();
     })
   }
   editAdmin(administrateur:Administrateur){
@@ -125,6 +132,22 @@ export class UtilisateurComponent implements OnInit {
         this.findAllChauf();  // MAJ de la liste des utilisateurs
         this.chauffeur = new Chauffeur(); // Vider le formulaire
     })
+
+  editUtilisateur(utilisateur:Utilisateur){
+    localStorage.removeItem("editUtilisateurId");
+    localStorage.setItem("editUtilisateurId", utilisateur.idUtilisateur.toString()); 
+    this.router.navigate(['/base/editUtilisateur',utilisateur.idUtilisateur]); 
+  }
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  authorities(){
+    console.log("isAdmin = "+this.appService.isAdmin)
+    if(this.appService.isAdmin==true){
+      return false;
+    }else{
+      return true;
+    }
   }
   editChauf(chauffeur:Chauffeur){
     localStorage.removeItem("editChaufId");

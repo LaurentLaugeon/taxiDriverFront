@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class UtilisateurService {
   private baseURL="http://localhost:7070/administrateur"; 
+
+  private baseURL2="http://localhost:7070/utilisateurs"; 
+
   /*private baseURLAdmin="http://localhost:7070/administrateurs"; 
   private baseURLChauffeur="http://localhost:7070/chauffeurs"; 
   private baseURLClient="http://localhost:7070/clients"; 
@@ -72,5 +75,23 @@ public updateChauf(utilisateur:any):Observable<any>{
   var userParse = JSON.parse(utilisateur); 
   return this.httpClient.put(this.baseURL+"/chauffeurs/updateCompte/"+userParse.idUtilisateur, userParse); 
 }
+
+
+  public findAll() : Observable<any>{
+    return this.httpClient.get(this.baseURL2);  
+  }
+  
+  public delete(id:number):Observable<any>{
+    return this.httpClient.delete(this.baseURL2+"/"+id); 
+  }
+
+  public save(user:any):Observable<any>{
+    return this.httpClient.post(this.baseURL2,user);
+  }
+
+  public update(utilisateur:any):Observable<any>{
+    var userParse = JSON.parse(utilisateur); // traduire les donnees format text en format JSON 
+    return this.httpClient.put(this.baseURL2+"/"+userParse.idUtilisateur, userParse); // Methode PUT 
+ }
 
 }
