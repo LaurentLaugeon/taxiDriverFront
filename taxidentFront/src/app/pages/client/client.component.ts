@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Chauffeur } from 'src/app/models/chauffeur';
-import { Utilisateur } from 'src/app/models/utilisateur';
 import { ClientService } from 'src/app/service/client.service';
 
 @Component({
@@ -10,8 +8,7 @@ import { ClientService } from 'src/app/service/client.service';
 })
 export class ClientComponent implements OnInit {
 
-  chauffeurs: any;
-  chauffeur:Chauffeur = new Chauffeur();
+  chauffeurs:any;
   
   constructor(private clientService:ClientService) { }
 
@@ -21,7 +18,6 @@ export class ClientComponent implements OnInit {
 
   findAll(){
     this.clientService.findAll().subscribe(data => {this.chauffeurs = data;});
-    console.log(this.chauffeurs);
   }
 
 }

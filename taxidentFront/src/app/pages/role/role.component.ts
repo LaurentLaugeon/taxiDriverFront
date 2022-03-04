@@ -21,7 +21,6 @@ export class RoleComponent implements OnInit {
  findAll(){
     this.roleService.findAll().subscribe(data => {this.roles = data;}); // data : objet qui stocke les données des utilisateurs
   }
-
   deleteRole(id:number){
     this.roleService.delete(id).subscribe(()=>{this.findAll()}) // () => {this.findAll()} 
   }
