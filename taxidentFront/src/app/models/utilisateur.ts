@@ -1,6 +1,8 @@
 import { Role } from "./role";
 
 import { Adresse } from "./adresse";
+import { Agence } from "./agence";
+import { Vehicules } from "./vehicules";
 
 
 export class Utilisateur {
@@ -12,6 +14,7 @@ export class Utilisateur {
     password!: string;
     email!: string;
     roles!: Role[];
+    adresse!: Adresse[]; 
     // reservations!: Reservation[];
 
 

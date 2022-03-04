@@ -17,6 +17,8 @@ import { RoleComponent } from './pages/role/role.component';
 
 import { ClientComponent } from './pages/client/client.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
+import { AdministrateurComponent } from './pages/administrateur/administrateur.component';
+
 import { ReservationService } from './services/reservation.service';
 import { ResponsableAgenceService } from './services/responsable-agence.service';
 import { ClientService } from './services/client.service';
@@ -51,7 +53,9 @@ intercept(req:HttpRequest<any>, next: HttpHandler){
     AdminLayoutComponent,
     AuthLayoutComponent,
     RoleComponent,
+    AdministrateurComponent,
     ReservationComponent
+
 
   ],
   providers: [

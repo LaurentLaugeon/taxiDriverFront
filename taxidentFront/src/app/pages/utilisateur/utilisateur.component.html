@@ -1,2 +1,348 @@
-<h1>Bienvenue sur la page de Gestion des utilisateurs</h1>
 
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Liste des administrateurs</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prenom</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Rue</th>
+                                <th scope="col">Code postal</th>
+                                <th scope="col">Ville</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let a of administrateurs">
+                                <td>{{a.nom}}</td>
+                                <td>{{a.prenom}}</td>
+                                <td>{{a.username}}</td>
+                                <td>{{a.email}}</td>
+                                <td>{{a.adresse.rue}}</td>
+                                <td>{{a.adresse.codePostal}}</td>
+                                <td>{{a.adresse.ville}}</td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-outline-danger" (click)="deleteAdmin(a.idUtilisateur)">Supprimer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+  </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <strong>Ajouter un administrateur</strong>
+            </div>
+            <div class="card-body">
+              <form class="form-horizontal" (ngSubmit)="saveAdmin()">
+              <div class="form-group">
+                <label>Nom</label>
+                <input type="text" [(ngModel)]="administrateur.nom" name="Nom" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Prenom</label>
+                <input type="text" [(ngModel)]="administrateur.prenom" name="Prenom" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" [(ngModel)]="administrateur.username" name="Username" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="text" [(ngModel)]="administrateur.password" name="Password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" [(ngModel)]="administrateur.email" name="Email" class="form-control">
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+             </div>  
+             </form>
+            </div>
+           </div>
+        </div>
+      </div><!--/.row-->
+    
+      </div>
+    </div>
+  </div>
+
+
+  <div class="header bg-gradient-warning pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+  <div class="row">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="mb-0">Liste des Responsables d'agence</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Rue</th>
+                        <th scope="col">Code postal</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Agence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of respos">
+                        <td>{{r.nom}}</td>
+                        <td>{{r.prenom}}</td>
+                        <td>{{r.username}}</td>
+                        <td>{{r.email}}</td>
+                        <td>{{r.adresse.rue}}</td>
+                        <td>{{r.adresse.codePostal}}</td>
+                        <td>{{r.adresse.ville}}</td>
+                        <td>{{r.agence.idAgence}}</td>
+                        <td class="text-right">
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteRespo(r.idUtilisateur)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
+</div>
+<div class="row">
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header">
+      <strong>Ajouter un responsable d'agence</strong>
+    </div>
+    <div class="card-body">
+      <form class="form-horizontal" (ngSubmit)="saveRespo()">
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="respo.nom" name="Nom" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Prenom</label>
+        <input type="text" [(ngModel)]="respo.prenom" name="Prenom" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" [(ngModel)]="respo.username" name="Username" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="text" [(ngModel)]="respo.password" name="Password" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" [(ngModel)]="respo.email" name="Email" class="form-control">
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label">Multiple select</label>
+        <div class="col-md-9">
+          <select multiple name="Agences" [(ngModel)]="respo.agence">
+            <option *ngFor="let r of agences" [ngValue]="r">
+              {{r.nom}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+     </div>  
+     </form>
+    </div>
+   </div>
+</div>
+</div><!--/.row-->
+</div>
+</div>
+</div>
+
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Liste des Clients</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prenom</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Rue</th>
+                                <th scope="col">Code postal</th>
+                                <th scope="col">Ville</th>
+                                <th scope="col">Points de fidelité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let c of clients">
+                                <td>{{c.nom}}</td>
+                                <td>{{c.prenom}}</td>
+                                <td>{{c.username}}</td>
+                                <td>{{c.email}}</td>
+                                <td>{{c.adresse.rue}}</td>
+                                <td>{{c.adresse.codePostal}}</td>
+                                <td>{{c.adresse.ville}}</td>
+                                <td>{{c.pointsFidelite}}</td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-outline-danger" (click)="deleteClient(c.idUtilisateur)">Supprimer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+  </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <strong>Ajouter un client</strong>
+            </div>
+            <div class="card-body">
+              <form class="form-horizontal" (ngSubmit)="saveClient()">
+              <div class="form-group">
+                <label>Nom</label>
+                <input type="text" [(ngModel)]="client.nom" name="Nom" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Prenom</label>
+                <input type="text" [(ngModel)]="client.prenom" name="Prenom" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" [(ngModel)]="client.username" name="Username" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="text" [(ngModel)]="client.password" name="Password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" [(ngModel)]="client.email" name="Email" class="form-control">
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+             </div>  
+             </form>
+            </div>
+           </div>
+        </div>
+      </div><!--/.row-->
+    
+      </div>
+    </div>
+  </div>
+
+  <div class="header bg-gradient-warning pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+  <div class="row">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="mb-0">Liste des Chauffeurs</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Rue</th>
+                        <th scope="col">Code postal</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Agence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ch of chauffeurs">
+                        <td>{{ch.nom}}</td>
+                        <td>{{ch.prenom}}</td>
+                        <td>{{ch.username}}</td>
+                        <td>{{ch.email}}</td>
+                        <td>{{ch.adresse.rue}}</td>
+                        <td>{{ch.adresse.codePostal}}</td>
+                        <td>{{ch.adresse.ville}}</td>
+                        <td>{{ch.note}}</td>
+                        <td>{{ch.agence.idAgence}}</td>
+                        <td class="text-right">
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteChauf(ch.idUtilisateur)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
+</div>
+<div class="row">
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header">
+      <strong>Ajouter un chauffeur</strong>
+    </div>
+    <div class="card-body">
+      <form class="form-horizontal" (ngSubmit)="saveChauf()">
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" [(ngModel)]="chauffeur.nom" name="Nom" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Prenom</label>
+        <input type="text" [(ngModel)]="chauffeur.prenom" name="Prenom" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" [(ngModel)]="chauffeur.username" name="Username" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="text" [(ngModel)]="chauffeur.password" name="Password" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" [(ngModel)]="chauffeur.email" name="Email" class="form-control">
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+     </div>  
+     </form>
+    </div>
+   </div>
+</div>
+</div><!--/.row-->
+</div>
+</div>
+</div>
