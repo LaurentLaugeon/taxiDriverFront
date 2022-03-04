@@ -8,6 +8,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
+
 export class ReservationComponent implements OnInit {
 
   reservations: any;

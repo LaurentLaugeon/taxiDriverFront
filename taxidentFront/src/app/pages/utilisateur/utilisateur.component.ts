@@ -22,8 +22,7 @@ import { VehiculeService } from 'src/app/services/vehicule.service';
 })
 export class UtilisateurComponent implements OnInit {
 
-  //utilisateurs: any;   //utilisateurs: Utilisateur[] 
-  roles: any;         // roles: Role[]
+  roles: any;
   agences:any;
   vehicules: any; 
   administrateurs:any;
@@ -112,7 +111,20 @@ export class UtilisateurComponent implements OnInit {
     this.utilisateurService.saveChauf(this.utilisateur).subscribe(()=>{
         this.findAllChauf();  // MAJ de la liste des utilisateurs
         this.chauffeur = new Chauffeur(); // Vider le formulaire
-    })
 
-}
+    });
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  
+  authorities(){
+    console.log("isAdmin = "+this.appService.isAdmin)
+    if(this.appService.isAdmin==true){
+      return false;
+    }else{
+      return true;
+    }
+  }
 }

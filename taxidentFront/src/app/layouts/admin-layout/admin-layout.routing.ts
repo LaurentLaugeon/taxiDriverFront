@@ -12,18 +12,20 @@ import { ReservationComponent } from 'src/app/pages/reservation/reservation.comp
 import { VoituresRespoComponent } from 'src/app/components/voitures-respo/voitures-respo.component';
 import { EditVehiculeComponent } from 'src/app/components/edit-vehicule/edit-vehicule.component';
 import { ChauffeursRespoComponent } from 'src/app/components/chauffeurs-respo/chauffeurs-respo.component';
+import { ClientSimulationComponent } from 'src/app/components/client-simulation/client-simulation.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'roles',            component: RoleComponent },
-    { path: 'utilisateur',      component: UtilisateurComponent },
-    { path: 'voitures-respo',   component: VoituresRespoComponent },
-    { path: 'chauffeurs-respo', component: ChauffeursRespoComponent },
-    { path: 'editVehicule/:id', component: EditVehiculeComponent },
-    { path: 'client',           component: ClientComponent },
-    { path: 'reservation',      component: ReservationComponent },
-    { path: 'dashboard',        component: DashboardComponent },
-    { path: 'user-profile',     component: UserProfileComponent },
-    { path: 'tables',           component: TablesComponent },
-    { path: 'icons',            component: IconsComponent },
-    { path: 'maps',             component: MapsComponent }
+    { path: 'roles',                component: RoleComponent },
+    { path: 'utilisateur',          component: UtilisateurComponent },
+    { path: 'voitures-respo',       component: VoituresRespoComponent },
+    { path: 'chauffeurs-respo',     component: ChauffeursRespoComponent },
+    { path: 'editVehicule/:id',     component: EditVehiculeComponent },
+    { path: 'client',               component: ClientComponent },
+    { path: 'client-simulation',    component: ClientSimulationComponent },
+    { path: 'reservation',          component: ReservationComponent },
+    { path: 'dashboard',            component: DashboardComponent },
+    { path: 'user-profile',         component: UserProfileComponent },
+    { path: 'tables',               component: TablesComponent },
+    { path: 'icons',                component: IconsComponent },
+    { path: 'maps',                 component: MapsComponent }
 ];

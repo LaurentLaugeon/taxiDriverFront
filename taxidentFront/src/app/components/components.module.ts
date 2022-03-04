@@ -11,6 +11,9 @@ import { VoituresRespoComponent } from './voitures-respo/voitures-respo.componen
 import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChauffeursRespoComponent } from './chauffeurs-respo/chauffeurs-respo.component';
+import { UtilisateurComponent } from '../pages/utilisateur/utilisateur.component';
+import { ClientComponent } from '../pages/client/client.component';
+import { ClientSimulationComponent } from './client-simulation/client-simulation.component';
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { ChauffeursRespoComponent } from './chauffeurs-respo/chauffeurs-respo.co
     ChauffeurComponent,
     VoituresRespoComponent,
     EditVehiculeComponent,
-    ChauffeursRespoComponent
+    ChauffeursRespoComponent,
+    ClientSimulationComponent
   ],
   exports: [
     FooterComponent,
