@@ -10,6 +10,7 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
 
     { path: '/roles', title: 'Gestion des roles', icon:'ni-single-02 text-yellow', class: ''},
+
     { path: '/utilisateur', title: 'Gestion des utilisateurs', icon:'ni-single-02 text-yellow', class: ''},
     { path: '/client', title: 'Acceuil',  icon: 'ni-delivery-fast text-blue', class: '' },
     { path: '/client-simulation', title: 'Simulation',  icon: 'ni-controller text-blue', class: '' },
@@ -22,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
     { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
     { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
-    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
+    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }*/
 
 ];
 

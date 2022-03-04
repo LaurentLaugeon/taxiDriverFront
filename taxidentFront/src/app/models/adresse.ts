@@ -1,7 +1,7 @@
 
 export class Adresse{
     rue!:String;
-    codePostale!:String;
+    codePostal!:String;
     ville!:String;
 }
 

@@ -26,6 +26,7 @@ import { RoleService } from './services/role.service';
 import { UtilisateurService } from './services/utilisateur.service';
 import { ChauffeurService } from './services/chauffeur.service';
 import { AppService } from './app.service';
+import { UtilisateurComponent } from './pages/utilisateur/utilisateur.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -55,6 +56,8 @@ intercept(req:HttpRequest<any>, next: HttpHandler){
     RoleComponent,
     AdministrateurComponent,
     ReservationComponent,
+    UtilisateurComponent
+
   ],
   providers: [
     ReservationService,
