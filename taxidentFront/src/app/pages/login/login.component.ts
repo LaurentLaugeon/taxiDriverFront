@@ -12,11 +12,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   credentials = {username:'', password: ''};
   constructor(private appService:AppService, private httpClient:HttpClient, private router:Router){}
 
-
   ngOnInit() {
   }
   ngOnDestroy() {
   }
+  
   login(){
     this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("client")});
     return false;

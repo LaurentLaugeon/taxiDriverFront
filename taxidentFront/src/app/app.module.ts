@@ -19,9 +19,9 @@ import { ClientComponent } from './pages/client/client.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { ReservationService } from './services/reservation.service';
 import { ResponsableAgenceService } from './services/responsable-agence.service';
-import { ClientService } from './service/client.service';
-import { RoleService } from './service/role.service';
-import { UtilisateurService } from './service/utilisateur.service';
+import { ClientService } from './services/client.service';
+import { RoleService } from './services/role.service';
+import { UtilisateurService } from './services/utilisateur.service';
 import { ChauffeurService } from './services/chauffeur.service';
 import { AppService } from './app.service';
 

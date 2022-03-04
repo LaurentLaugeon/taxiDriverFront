@@ -19,7 +19,7 @@ export class AppService {
           authorization : 'Basic ' + btoa(credentials.username+ ':'+credentials.password)
         } : {}
     );
-  this.httpClient.get('http://localhost:7070/login/users',{headers:headers}).subscribe(response =>{
+  this.httpClient.get('http://localhost:7070/login/user',{headers:headers}).subscribe(response =>{
   console.log("response="+response);  
   this.responseAll = response;
   if(this.responseAll['username']){
