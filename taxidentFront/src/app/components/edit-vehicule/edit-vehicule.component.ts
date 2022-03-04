@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Vehicules } from 'src/app/models/vehicules';
 import { ResponsableAgenceService } from 'src/app/services/responsable-agence.service';
+import { VehiculeService } from 'src/app/services/vehicule.service';
 
 @Component({
   selector: 'app-edit-vehicule',
@@ -12,8 +13,8 @@ import { ResponsableAgenceService } from 'src/app/services/responsable-agence.se
 export class EditVehiculeComponent implements OnInit {
   editForm : FormGroup;
   vehicule: Vehicules = new Vehicules();
-  
-  constructor(private router:Router, private responsableAgenceService : ResponsableAgenceService, private formBuilder:FormBuilder) { }
+  chauffeurs: any;
+  constructor(private router:Router, private responsableAgenceService : ResponsableAgenceService, private formBuilder:FormBuilder, private vehiculeService: VehiculeService) { }
 
   ngOnInit(): void {
     //recuperation de l'id
@@ -21,7 +22,7 @@ export class EditVehiculeComponent implements OnInit {
     if (!vehiculeId){
       //si pas de id => erreur
       alert("invalid Action");
-      this.router.navigate(['/base/forms']);
+      this.router.navigate(['voitures-respo']);
       return;
     }
     //obligations du formulaire
@@ -35,8 +36,17 @@ export class EditVehiculeComponent implements OnInit {
       chauffeur:['',Validators.required],
       agence:['',Validators.required]
     })
-    //initialisation
     
+    //initialisation
+    this.vehiculeService.findOne(+vehiculeId).subscribe(data => {this.editForm.setValue(data)})
+    
+    this.loadChauffeurs();
   }
-
+  loadChauffeurs(){
+    this.responsableAgenceService.findAllChauffeurByAgence(1).subscribe(data =>{this.chauffeurs = data});
+  }
+  updateVehicule(){
+    var varJson=JSON.stringify(this.editForm.value); // conversion en text json pour la method post
+    this.responsableAgenceService.updateVehicule(varJson).subscribe(()=>{this.router.navigate(['voitures-respo'])})
+  }
 }

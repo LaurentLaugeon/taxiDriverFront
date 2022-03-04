@@ -11,31 +11,27 @@
       <div class="col">
         <div class="card shadow">
           <div class="card-header border-0">
-            <h3 class="mb-0">Vehicules de l'agence ***</h3><!--inserer le nom de l'agence du respo identifié-->
+            <h3 class="mb-0">Chauffeur de l'agence ***</h3><!--inserer le nom de l'agence du respo identifié-->
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Model</th>
-                  <th scope="col">Immatriculation</th>
-                  <th scope="col">Consomation [L/100km]</th>
-                  <th scope="col">Nombre de places</th>
-                  <th scope="col">Capacité du coffre [bagages]</th>
-                  <th scope="col">Action</th>
-                  <th scope="col"></th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prenom</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Note</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let v of voitures">
-                    <td>{{v.model}}</td>
-                    <td>{{v.immatriculation}}</td>
-                    <td>{{v.conso}}</td>
-                    <td>{{v.nbPlace}}</td>
-                    <td>{{v.capaciteCoffre}}</td>
+                <tr *ngFor="let c of chauffeurs">
+                    <td>{{c.nom}}</td>
+                    <td>{{c.prenom}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.note}}</td>
                     <td>
-                      <button class="btn btn-block btn-danger active" (click)="deleteVehicule(v.idVehicule)">Delete</button>
-                      <button class="btn btn-block btn-primary active" (click)="editVehicule(v.idVehicule)">Edit</button>
+                      <button class="btn btn-block btn-danger active" (click)="deleteChauffeur(c.idUtilisateur)">Delete</button>
+                      <!--<button class="btn btn-block btn-primary active" (click)="editChauffeur(c.idUtilisateur)">Edit</button>-->
                     </td>
                 </tr>
               </tbody>
@@ -67,45 +63,42 @@
             </nav>
           </div>
           <div class="card-body">
-            <form (ngSubmit)="saveVehicule()">
-                <h6 class="heading-small text-muted mb-4">Information du vehicule</h6>
+            <form (ngSubmit)="saveChauffeur()">
+                <h6 class="heading-small text-muted mb-4">Information du chauffeur</h6>
                 <div class="pl-lg-4">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Model</label>
-                                <input type="text" [(ngModel)]="voiture.model" name="model" class="form-control form-control-alternative">
+                                <label class="form-control-label">Nom</label>
+                                <input type="text" [(ngModel)]="chauffeur.nom" name="nom" class="form-control form-control-alternative">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Immatriculation</label>
-                                <input type="text" [(ngModel)]="voiture.immatriculation" name="immatriculation" class="form-control form-control-alternative">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label">Consomation</label>
-                                <input type="number" [(ngModel)]="voiture.conso" name="conso" class="form-control form-control-alternative">
-                            </div>
-                        </div>
-                
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label">Nombre de places</label>
-                                <input type="number" [(ngModel)]="voiture.nbPlace" name="nbPlace" class="form-control form-control-alternative">
+                                <label class="form-control-label">Prenom</label>
+                                <input type="text" [(ngModel)]="chauffeur.prenom" name="prenom" class="form-control form-control-alternative">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Capactité du coffre</label>
-                                <input type="number" [(ngModel)]="voiture.capaciteCoffre" name="capaciteCoffre" class="form-control form-control-alternative">
+                                <label class="form-control-label">Email</label>
+                                <input type="text" [(ngModel)]="chauffeur.email" name="email" class="form-control form-control-alternative">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Username</label>
+                                <input type="text" [(ngModel)]="chauffeur.username" name="username" class="form-control form-control-alternative">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Password</label>
+                                <input type="text" [(ngModel)]="chauffeur.password" name="password" class="form-control form-control-alternative">
                             </div>
                         </div>
                     </div>
@@ -114,25 +107,43 @@
                 <h6 class="heading-small text-muted mb-4">Informations complementaires</h6>
                 <div class="pl-lg-4">
                     <div class="row">
-                        <!--<div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Chauffeur</label>
-                                <select name="chauffeur" [(ngModel)]="voiture.chauffeur">
-                                    <option *ngFor="let c of chauffeurs" [ngValue]="c">
-                                        {{c.nom}} {{c.prenom}}
+                                <label class="form-control-label">Note</label>
+                                <input type="number" [(ngModel)]="chauffeur.note" name="note" class="form-control form-control-alternative">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Role</label>
+                                <select multiple name="role" [(ngModel)]="chauffeur.roles">
+                                    <option *ngFor="let r of roles" [ngValue]="r">
+                                        {{r.libelle}}
                                     </option>
                                 </select>
                             </div>
-                        </div>-->
+                        </div>
                         <div class="col-lg-4">
-                          <div class="form-group">
-                              <label class="form-control-label">Agence</label>
-                              <select name="agence" [(ngModel)]="voiture.agence">
-                                  <option *ngFor="let a of agences" [ngValue]="a">
-                                      {{a.nomAgence}}
-                                  </option>
-                              </select>
-                          </div>
+                            <div class="form-group">
+                                <label class="form-control-label">Vehicule</label>
+                                <select name="vehicule" [(ngModel)]="chauffeur.vehicule">
+                                    <option *ngFor="let v of vehicules" [ngValue]="v">
+                                        {{v.model}} {{v.immatriculation}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Agence</label>
+                                <select name="agence" [(ngModel)]="chauffeur.agence">
+                                    <option *ngFor="let a of agences" [ngValue]="a">
+                                        {{a.nomAgence}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
