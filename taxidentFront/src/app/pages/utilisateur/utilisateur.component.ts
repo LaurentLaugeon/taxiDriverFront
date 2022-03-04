@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 import { Utilisateur } from 'src/app/models/utilisateur';
-import { RoleService } from 'src/app/service/role.service';
-import { UtilisateurService } from 'src/app/service/utilisateur.service';
+import { RoleService } from 'src/app/services/role.service';
+import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-utilisateur',

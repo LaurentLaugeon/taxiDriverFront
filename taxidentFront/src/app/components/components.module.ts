@@ -11,7 +11,8 @@ import { UtilisateurComponent } from '../pages/utilisateur/utilisateur.component
 import { ChauffeurComponent } from './chauffeur/chauffeur.component';
 import { VoituresRespoComponent } from './voitures-respo/voitures-respo.component';
 import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChauffeursRespoComponent } from './chauffeurs-respo/chauffeurs-respo.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RouterModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     FooterComponent,
@@ -29,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     UtilisateurComponent,
     ChauffeurComponent,
     VoituresRespoComponent,
-    EditVehiculeComponent
+    EditVehiculeComponent,
+    ChauffeursRespoComponent
   ],
   exports: [
     FooterComponent,

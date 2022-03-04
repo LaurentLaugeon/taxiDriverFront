@@ -11,11 +11,13 @@ import { ClientComponent } from 'src/app/pages/client/client.component';
 import { ReservationComponent } from 'src/app/pages/reservation/reservation.component';
 import { VoituresRespoComponent } from 'src/app/components/voitures-respo/voitures-respo.component';
 import { EditVehiculeComponent } from 'src/app/components/edit-vehicule/edit-vehicule.component';
+import { ChauffeursRespoComponent } from 'src/app/components/chauffeurs-respo/chauffeurs-respo.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'roles',   component: RoleComponent },
-    { path: 'utilisateur',   component: UtilisateurComponent },
+    { path: 'roles',            component: RoleComponent },
+    { path: 'utilisateur',      component: UtilisateurComponent },
     { path: 'voitures-respo',   component: VoituresRespoComponent },
+    { path: 'chauffeurs-respo', component: ChauffeursRespoComponent },
     { path: 'editVehicule/:id', component: EditVehiculeComponent },
     { path: 'client',           component: ClientComponent },
     { path: 'reservation',      component: ReservationComponent },
