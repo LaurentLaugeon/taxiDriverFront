@@ -37,7 +37,6 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
     AuthLayoutComponent,
     ClientComponent,
     RoleComponent,
-
     ReservationComponent
 
   ],

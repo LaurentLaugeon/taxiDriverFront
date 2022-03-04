@@ -1,1 +1,78 @@
-<p>reservation works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Liste des roles</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Statut</th>
+                                <th scope="col">Date de création</th>
+                                <th scope="col">Date de validation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let r of reservations">
+                <!-- <th scope="row">
+                  <div class="media align-items-center">
+                    <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                      <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                    </a>
+                    <div class="media-body">
+                      <span class="mb-0 text-sm">Argon Design System</span>
+                    </div>
+                  </div>
+                </th> 
+              nouvel essai -->
+                                <td>{{r.statut}}</td>
+                                <td>{{r.dateCreation}}</td>
+                                <td>{{r.dateValidation}}</td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-outline-danger" (click)="deleteReservation(r.idResa)">Supprimer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+    
+  </div>
+
+<div class="row">
+<div class="col-md-6">
+    <div class="card">
+    <div class="card-header">
+        <strong>Ajouter un role</strong>
+    </div>
+    <div class="card-body">
+        <form class="form-horizontal" (ngSubmit)="save()">
+        <div class="form-group">
+            <label>Statut</label>
+            <input type="text" [(ngModel)]="reservation.statut" name="statut" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Date de création</label>
+            <input type="text" [(ngModel)]="reservation.dateCreation" name="dateCreation" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Date de validation</label>
+            <input type="text" [(ngModel)]="reservation.dateValidation" name="dateValidation" class="form-control">
+        </div>
+        
+        
+        <div class="card-footer">
+        <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Ajouter</button>
+        </div>  
+        
+        </form>
+    </div>
+    </div>
+</div>
+</div>

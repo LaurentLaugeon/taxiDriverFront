@@ -6,10 +6,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClientService {
-  private baseURL="http://localhost:7070/client/chauffeurs";
+  private chauffeursURL="http://localhost:7070/client/chauffeurs";
+  private agencesURL="http://localhost:7070/client/agences";
+  private statistiquesURL="http://localhost:7070/client/statistiques";
 
   constructor(private httpClient:HttpClient) { }
-  public findAll() : Observable<any>{
-    return this.httpClient.get(this.baseURL);
+  public findAllChauffeurs() : Observable<any>{
+    return this.httpClient.get(this.chauffeursURL);
+  }
+  
+  public findAllAgences() : Observable<any> {
+    return this.httpClient.get(this.agencesURL);
+  }
+
+  public findAllStatistiques() : Observable<any> {
+    return this.httpClient.get(this.statistiquesURL);
   }
 }

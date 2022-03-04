@@ -9,15 +9,27 @@ import { ClientService } from 'src/app/service/client.service';
 export class ClientComponent implements OnInit {
 
   chauffeurs:any;
+  agences:any;
+  statistiques:any;
   
   constructor(private clientService:ClientService) { }
 
   ngOnInit(): void {
-    this.findAll();
+    this.findAllChauffeurs();
+    this.findAllAgences();
+    this.findAllStatistiques();
   }
 
-  findAll(){
-    this.clientService.findAll().subscribe(data => {this.chauffeurs = data;});
+  findAllChauffeurs(){
+    this.clientService.findAllChauffeurs().subscribe(data => {this.chauffeurs = data;});
+  }
+
+  findAllAgences(){
+    this.clientService.findAllAgences().subscribe(data => {this.agences = data;});
+  }
+
+  findAllStatistiques(){
+    this.clientService.findAllStatistiques().subscribe(data => {this.statistiques = data;});
   }
 
 }

@@ -1,8 +1,3 @@
-<!-- {{chauffeurs}}
-<ul>
-  <li *ngFor="let c of chauffeurs">{{c.nom}}</li>
-</ul> -->
-<!-- Dark table -->
 <div class="row mt-5">
   <div class="col">
     <div class="card bg-default shadow">
@@ -31,5 +26,47 @@
         </table>
       </div>
     </div>
-  </div>
-</div>
+    <div class="card bg-default shadow"></div>
+      <div class="card-header bg-transparent border-0">
+        <h3 class="text-white mb-0">Liste des agences</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-items-center table-dark table-flush">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Ville</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of agences">
+            <td>{{a.nomAgence}}</td>
+            <td>{{a.adresse.ville}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+    <div class="card bg-default shadow"></div>
+      <div class="card-header bg-transparent border-0">
+        <h3 class="text-white mb-0">Liste des statistiques</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-items-center table-dark table-flush">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Libelle</th>
+              <th scope="col">Valeur</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let st of statistiques">
+            <td>{{st.libelle}}</td>
+            <td>{{st.valeur}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
