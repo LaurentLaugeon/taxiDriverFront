@@ -17,6 +17,11 @@ import { RoleComponent } from './pages/role/role.component';
 
 import { ClientComponent } from './pages/client/client.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
+import { AdministrateurComponent } from './pages/administrateur/administrateur.component';
+import { EditAdminComponent } from './pages/edit-admin/edit-admin.component';
+import { EditClientComponent } from './pages/edit-client/edit-client.component';
+import { EditChaufComponent } from './pages/edit-chauf/edit-chauf.component';
+import { EditRespoComponent } from './pages/edit-respo/edit-respo.component';
 
 
 
@@ -38,7 +43,12 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
 
     RoleComponent,
 
-    ReservationComponent
+    ReservationComponent,
+      AdministrateurComponent,
+      EditAdminComponent,
+      EditClientComponent,
+      EditChaufComponent,
+      EditRespoComponent
 
   ],
   providers: [],
