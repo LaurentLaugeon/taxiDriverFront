@@ -13,6 +13,7 @@ import { ResponsableAgenceService } from 'src/app/services/responsable-agence.se
 
 import { RoleService } from 'src/app/services/role.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { VehiculeService } from 'src/app/services/vehicule.service';
 
 @Component({
   selector: 'app-utilisateur',
@@ -36,7 +37,7 @@ export class UtilisateurComponent implements OnInit {
   respo : ResponsableAgence = new ResponsableAgence(); 
   utilisateur: Utilisateur = new Utilisateur(); // Utilisateur utilisateur=new Utilisateur() : JAVA
 
-  constructor(private appService:AppService, private utilisateurService:UtilisateurService, private administrateurService:AdministrateurService, private clientService:ClientService, private chuaffeurService:ChauffeurService, private responsableAgenceService:ResponsableAgenceService,private roleService:RoleService,private agenceService:ResponsableAgenceService, private router:Router) { } 
+  constructor(private appService:AppService, private vehiculeService:VehiculeService, private utilisateurService:UtilisateurService, private administrateurService:AdministrateurService, private clientService:ClientService, private chuaffeurService:ChauffeurService, private responsableAgenceService:ResponsableAgenceService,private roleService:RoleService,private agenceService:ResponsableAgenceService, private router:Router) { } 
   ngOnInit(): void {
     this.findAllAdmin();
     this.findAllClient();
@@ -44,19 +45,22 @@ export class UtilisateurComponent implements OnInit {
     this.findAllRespo();
     this.loadRoles();
     this.loadAgences();
+    this.loadVehicules();
   }
-
+  
   loadRoles(){
     this.roleService.findAll().subscribe(data =>{this.roles = data;});
   }
   loadAgences(){
-    this.agenceService.findAll().subscribe(data =>{this.roles = data;});
+    this.agenceService.findAll().subscribe(data =>{this.agences = data;});
   }
-  
+  loadVehicules(){
+    this.agenceService.findAll().subscribe(data =>{this.vehicules = data;});
+  }
 
   // Afficher + formulaire administrateurs
   findAllAdmin(){
-    this.utilisateurService.findAllAdmin().subscribe(data => {this.administrateurs = data;}); // data : objet qui stocke les données des utilisateurs
+    this.utilisateurService.findAllAdmin().subscribe(data => {this.administrateurs = data; console.log("respo:"+this.respos)}); // data : objet qui stocke les données des utilisateurs
   }
   deleteAdmin(id:number){
     this.utilisateurService.deleteAdmin(id).subscribe(()=>{this.findAllAdmin()}) // () => {this.findAll()} 
@@ -66,19 +70,7 @@ export class UtilisateurComponent implements OnInit {
     this.utilisateurService.saveAdmin(this.administrateur).subscribe(()=>{
         this.findAllAdmin();  // MAJ de la liste des utilisateurs
         this.administrateur = new Administrateur(); // Vider le formulaire
-
-  save(){
-    this.utilisateurService.save(this.utilisateur).subscribe(()=>{
-        this.findAll();
-        this.utilisateur = new Utilisateur();
-    })
-  }
-  editAdmin(administrateur:Administrateur){
-    localStorage.removeItem("editAdminId");
-    localStorage.setItem("editAdminId", administrateur.idUtilisateur.toString()); 
-    this.router.navigate(['/editAdmin',administrateur.idUtilisateur]); 
-  
-  }
+    })}
 
   // Afficher + formulaire client
   findAllClient(){
@@ -93,16 +85,11 @@ export class UtilisateurComponent implements OnInit {
         this.client = new Client(); // Vider le formulaire
     })
   }
-  editClient(client:Client){
-    localStorage.removeItem("editClientId");
-    localStorage.setItem("editClientId", client.idUtilisateur.toString()); 
-    this.router.navigate(['/editClient',client.idUtilisateur]); 
-  }
 
 
   // Afficher + formulaire Responsable agence
   findAllRespo(){
-    this.utilisateurService.findAllRespo().subscribe(data => {this.respos = data;}); // data : objet qui stocke les données des utilisateurs
+    this.utilisateurService.findAllRespo().subscribe(data => {this.respos = data; console.log("respo:"+this.respos)}); // data : objet qui stocke les données des utilisateurs
   }
   deleteRespo(id:number){
     this.utilisateurService.deleteRespo(id).subscribe(()=>{this.findAllRespo()}) // () => {this.findAll()} 
@@ -113,13 +100,7 @@ export class UtilisateurComponent implements OnInit {
         this.respo = new ResponsableAgence(); // Vider le formulaire
     })
   }
-  editRespo(respo:ResponsableAgence){
-    localStorage.removeItem("editRespoId");
-    localStorage.setItem("editRespoId", respo.idUtilisateur.toString()); 
-    this.router.navigate(['/editRespo',respo.idUtilisateur]); 
-  }
-
-
+ 
    // Afficher + formulaire Chauffeur
    findAllChauf(){
     this.utilisateurService.findAllChauf().subscribe(data => {this.chauffeurs = data;}); // data : objet qui stocke les données des utilisateurs
@@ -133,25 +114,5 @@ export class UtilisateurComponent implements OnInit {
         this.chauffeur = new Chauffeur(); // Vider le formulaire
     })
 
-  editUtilisateur(utilisateur:Utilisateur){
-    localStorage.removeItem("editUtilisateurId");
-    localStorage.setItem("editUtilisateurId", utilisateur.idUtilisateur.toString()); 
-    this.router.navigate(['/base/editUtilisateur',utilisateur.idUtilisateur]); 
-  }
-  authenticated(){
-    return this.appService.authenticated;
-  }
-  authorities(){
-    console.log("isAdmin = "+this.appService.isAdmin)
-    if(this.appService.isAdmin==true){
-      return false;
-    }else{
-      return true;
-    }
-  }
-  editChauf(chauffeur:Chauffeur){
-    localStorage.removeItem("editChaufId");
-    localStorage.setItem("editChaufId", chauffeur.idUtilisateur.toString()); 
-    this.router.navigate(['/editChauf',chauffeur.idUtilisateur]); 
-  } 
+}
 }

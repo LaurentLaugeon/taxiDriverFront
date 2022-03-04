@@ -14,7 +14,7 @@ export class Utilisateur {
     password!: string;
     email!: string;
     roles!: Role[];
-    adresse!: Adresse[]; 
+    adresse!: Adresse; 
     // reservations!: Reservation[];
 
 

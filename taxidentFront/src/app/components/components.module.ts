@@ -6,8 +6,6 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { UtilisateurComponent } from '../pages/utilisateur/utilisateur.component';
-
 import { ChauffeurComponent } from './chauffeur/chauffeur.component';
 import { VoituresRespoComponent } from './voitures-respo/voitures-respo.component';
 import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
@@ -28,7 +26,6 @@ import { ChauffeursRespoComponent } from './chauffeurs-respo/chauffeurs-respo.co
     NavbarComponent,
     SidebarComponent,
 
-    UtilisateurComponent,
     ChauffeurComponent,
     VoituresRespoComponent,
     EditVehiculeComponent,
