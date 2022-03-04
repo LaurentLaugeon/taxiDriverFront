@@ -21,8 +21,7 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 })
 export class UtilisateurComponent implements OnInit {
 
-  //utilisateurs: any;   //utilisateurs: Utilisateur[] 
-  roles: any;         // roles: Role[]
+  roles: any;
   agences:any;
   vehicules: any; 
   administrateurs:any;
@@ -65,11 +64,11 @@ export class UtilisateurComponent implements OnInit {
   saveAdmin(){  
     this.utilisateurService.saveAdmin(this.administrateur).subscribe(()=>{
         this.findAllAdmin();  // MAJ de la liste des utilisateurs
-        this.administrateur = new Administrateur(); // Vider le formulaire
+        this.administrateur = new Administrateur();}) }// Vider le formulaire
 
   save(){
     this.utilisateurService.save(this.utilisateur).subscribe(()=>{
-        this.findAll();
+        this.ngOnInit();
         this.utilisateur = new Utilisateur();
     })
   }
@@ -131,16 +130,13 @@ export class UtilisateurComponent implements OnInit {
     this.utilisateurService.saveChauf(this.utilisateur).subscribe(()=>{
         this.findAllChauf();  // MAJ de la liste des utilisateurs
         this.chauffeur = new Chauffeur(); // Vider le formulaire
-    })
-
-  editUtilisateur(utilisateur:Utilisateur){
-    localStorage.removeItem("editUtilisateurId");
-    localStorage.setItem("editUtilisateurId", utilisateur.idUtilisateur.toString()); 
-    this.router.navigate(['/base/editUtilisateur',utilisateur.idUtilisateur]); 
+    });
   }
+
   authenticated(){
     return this.appService.authenticated;
   }
+  
   authorities(){
     console.log("isAdmin = "+this.appService.isAdmin)
     if(this.appService.isAdmin==true){

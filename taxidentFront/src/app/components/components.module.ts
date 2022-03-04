@@ -6,13 +6,15 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { UtilisateurComponent } from '../pages/utilisateur/utilisateur.component';
 
 import { ChauffeurComponent } from './chauffeur/chauffeur.component';
 import { VoituresRespoComponent } from './voitures-respo/voitures-respo.component';
 import { EditVehiculeComponent } from './edit-vehicule/edit-vehicule.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChauffeursRespoComponent } from './chauffeurs-respo/chauffeurs-respo.component';
+import { UtilisateurComponent } from '../pages/utilisateur/utilisateur.component';
+import { ClientComponent } from '../pages/client/client.component';
+import { ClientSimulationComponent } from './client-simulation/client-simulation.component';
 
 
 @NgModule({
@@ -27,12 +29,12 @@ import { ChauffeursRespoComponent } from './chauffeurs-respo/chauffeurs-respo.co
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-
     UtilisateurComponent,
     ChauffeurComponent,
     VoituresRespoComponent,
     EditVehiculeComponent,
-    ChauffeursRespoComponent
+    ChauffeursRespoComponent,
+    ClientSimulationComponent
   ],
   exports: [
     FooterComponent,
